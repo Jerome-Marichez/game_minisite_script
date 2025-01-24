@@ -152,7 +152,7 @@ const validateURL = (url) => {
 }
 
 export async function getServerSideProps() {
-  const filePath = path.join(process.cwd(), 'data', 'gameData.json');
+  const filePath = path.join('/tmp', 'gameData.json');
 
   try {
     const fileContents = await fs.readFile(filePath, 'utf8');

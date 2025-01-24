@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     const { siteGagnant, sitePerdant, siteFinJeu } = links;
 
     if (!siteGagnant || !sitePerdant || !siteFinJeu) {
-      res.redirect(302,"https://www.google.fr/");
+      res.redirect(302, "https://www.google.fr/");
       return;
     }
 
