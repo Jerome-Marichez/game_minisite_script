@@ -3,7 +3,7 @@ import path from 'path';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const filePath = path.join(process.cwd(), '/app/data', 'gameData.json');
+    const filePath = path.join('/tmp', 'gameData.json');
 
     try {
       await fs.writeFile(filePath, JSON.stringify(req.body, null, 2));
