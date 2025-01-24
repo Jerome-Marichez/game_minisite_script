@@ -93,51 +93,57 @@ const validateURL = (url) => {
   };
 
   return (
-    <div>
+    <div style={{display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center", alignItems: "center"}}>
       <h1>Script - Jeu Gagnant / Perdant</h1>
-      <nav>
-        <label>
-            Site Gagnant:
+      <nav style={{display: "flex", gap: "30px"}}>
+        <label style={{display: "flex", gap: "5px"}}> 
+            Site Gagnant: 
             <input type="text" value={links.siteGagnant} onChange={handleLinkChange('siteGagnant')} />
           </label>
-          <label>
-            Site Perdant:
+        <label style={{display: "flex", gap: "5px"}}> 
+            Site Perdant: 
             <input type="text" value={links.sitePerdant} onChange={handleLinkChange('sitePerdant')} />
           </label>
-          <label>
-            Site Fin Jeu:
+        <label style={{display: "flex", gap: "5px"}}> 
+            Site Fin Jeu: 
             <input type="text" value={links.siteFinJeu} onChange={handleLinkChange('siteFinJeu')} />
           </label>
       </nav>
 
-      <div>
-        <label>
-          Start Date:
+      <div style={{display: "flex", flexDirection: "row", gap: "10px"}}>
+        <label style={{display: "flex", flexDirection: "row", gap: "5px"}}> 
+          Début:
           <input type="date" value={startDate} onChange={handleDateChange(setStartDate)} />
         </label>
-        <label>
-          End Date:
+        <label style={{display: "flex", gap: "5px"}}> 
+          Fin:
           <input type="date" value={endDate} onChange={handleDateChange(setEndDate)} />
         </label>
       </div>
 
       <div>
+        {startDate && endDate &&
+        <div style={{textAlign: "center", marginBottom: "10px"}}>Nombre de gagnants maximum / Jour</div>
+        }
         {Gagnantss.map((day, index) => (
           <div key={day.date}>
             <label>
-              {day.date} Gagnants:
+              <b>{day.date.split("-").reverse().join("-")} </b>
               <input
-                type="text"
+                type="number"
                 value={day.Gagnants}
                 onChange={(e) => handleGagnantsChange(index, e.target.value)}
               />
+              
             </label>
           </div>
         ))}
       </div>
 
-      <button onClick={handleSave}>Sauvegarder les modifications</button>
-      <button onClick={handleReset}>Reset à 0</button>
+<div style={{display: "flex", flexDirection: "row", gap: "20px"}}>
+      <button style={{maxWidth: "200px"}} onClick={handleSave}>Sauvegarder les modifications</button>
+      <button style={{maxWidth: "200px"}} onClick={handleReset}>Réinitialiser les champs</button>
+    </div>
     </div>
   );
 }
