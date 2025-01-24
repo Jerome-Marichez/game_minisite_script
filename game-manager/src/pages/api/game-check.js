@@ -4,8 +4,8 @@ import path from 'path';
 
 export default async function handler(req, res) {
   
-  const gameDataPath = path.join('/tmp', 'gameData.json');
-  const gameWinPath = path.join('/tmp', 'gameWin.json');
+  const gameDataPath = './gameData.json';
+  const gameWinPath = './gameWin.json';
 
   try {
     const gameData = JSON.parse(await fs.readFile(gameDataPath, 'utf-8'));

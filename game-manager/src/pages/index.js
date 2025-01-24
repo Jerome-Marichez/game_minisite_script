@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import fs from 'fs/promises';
 import path from 'path';
+import { MiddlewareNotFoundError } from 'next/dist/shared/lib/utils';
 
 export default function GameManager({ initialData }) {
   
@@ -95,21 +96,20 @@ const validateURL = (url) => {
   return (
     <div style={{display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center", alignItems: "center"}}>
       <h1>Script - Jeu Gagnant / Perdant</h1>
-      <label>Info: Le QR-Code doit être lié au lien suivant: https://game-minisite-script.vercel.app/api/game-check/
-
+      <label style={{backgroundColor: "lightgrey", padding: "5px", borderRadius: "10px"}}>Info: Le QR-Code doit être lié au lien suivant: <b>https://game-minisite-script.vercel.app/api/game-check/</b>
       </label>
-      <nav style={{display: "flex", gap: "30px"}}>
+      <nav style={{display: "flex", flexDirection: "column", alignItems:"center", gap: "10px", marginBottom: "10px"}}>
         <label style={{display: "flex", gap: "5px"}}> 
             Site Gagnant: 
-            <input type="text" value={links.siteGagnant} onChange={handleLinkChange('siteGagnant')} />
+            <input type="text" value={links.siteGagnant} onChange={handleLinkChange('siteGagnant')} style={{width: "250px"}}/>
           </label>
         <label style={{display: "flex", gap: "5px"}}> 
             Site Perdant: 
-            <input type="text" value={links.sitePerdant} onChange={handleLinkChange('sitePerdant')} />
+            <input type="text" value={links.sitePerdant} onChange={handleLinkChange('sitePerdant')} style={{width: "250px"}}/>
           </label>
         <label style={{display: "flex", gap: "5px"}}> 
             Site Fin Jeu: 
-            <input type="text" value={links.siteFinJeu} onChange={handleLinkChange('siteFinJeu')} />
+            <input type="text" value={links.siteFinJeu} onChange={handleLinkChange('siteFinJeu')} style={{width: "250px"}}/>
           </label>
       </nav>
 
@@ -152,7 +152,7 @@ const validateURL = (url) => {
 }
 
 export async function getServerSideProps() {
-  const filePath = path.join('/tmp', 'gameData.json');
+  const filePath = path.join('./gameData.json');
 
   try {
     const fileContents = await fs.readFile(filePath, 'utf8');
