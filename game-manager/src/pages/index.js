@@ -79,10 +79,10 @@ const validateURL = (url) => {
         body: JSON.stringify(data),
       });
       if (!response.ok) throw new Error('Failed to save data.');
-      alert('Data saved successfully!');
+      alert('Donnée sauvegardée');
     } catch (err) {
       console.error(err);
-      alert('Error saving data.');
+      alert('Erreur en sauvegardant les données');
     }
   };
 
