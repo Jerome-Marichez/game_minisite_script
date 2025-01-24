@@ -95,6 +95,7 @@ const validateURL = (url) => {
   return (
     <div style={{display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center", alignItems: "center"}}>
       <h1>Script - Jeu Gagnant / Perdant</h1>
+      <label>Info: Le QR-Code doit être lié au lien suivant: https://game-minisite-script.vercel.app/aopi/game-check/</label>
       <nav style={{display: "flex", gap: "30px"}}>
         <label style={{display: "flex", gap: "5px"}}> 
             Site Gagnant: 
