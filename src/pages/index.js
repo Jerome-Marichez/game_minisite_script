@@ -96,7 +96,7 @@ const validateURL = (url) => {
   return (
     <div style={{display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center", alignItems: "center"}}>
       <h1>Script - Jeu Gagnant / Perdant</h1>
-      <label style={{backgroundColor: "lightgrey", padding: "5px", borderRadius: "10px"}}>Info: Le QR-Code doit être lié au lien suivant: <b>http://vocalsms.com:3000/api/game-check</b>
+      <label style={{backgroundColor: "lightgrey", padding: "5px", borderRadius: "10px"}}>Info: Le QR-Code doit être lié au lien suivant: <b>https://minisite.vocalsms.com/api/game-check/</b>
       </label>
       <nav style={{display: "flex", flexDirection: "column", alignItems:"center", gap: "10px", marginBottom: "10px"}}>
         <label style={{display: "flex", gap: "5px"}}> 
@@ -108,7 +108,7 @@ const validateURL = (url) => {
             <input type="text" value={links.sitePerdant} onChange={handleLinkChange('sitePerdant')} style={{width: "250px"}}/>
           </label>
         <label style={{display: "flex", gap: "5px"}}> 
-            Site Fin Jeu: 
+            Site Fin du jeu: 
             <input type="text" value={links.siteFinJeu} onChange={handleLinkChange('siteFinJeu')} style={{width: "250px"}}/>
           </label>
       </nav>
@@ -143,9 +143,9 @@ const validateURL = (url) => {
         ))}
       </div>
 
-<div style={{display: "flex", flexDirection: "row", gap: "20px"}}>
-      <button style={{maxWidth: "200px"}} onClick={handleSave}>Sauvegarder les modifications</button>
-      <button style={{maxWidth: "200px"}} onClick={handleReset}>Réinitialiser les champs</button>
+<div style={{display: "flex", flexDirection: "row", gap: "20px", marginBottom: "40px"}}>
+      <button style={{maxWidth: "200px", padding: "5px"}} onClick={handleSave}>Sauvegarder les modifications</button>
+      <button style={{maxWidth: "200px", padding: "5px"}} onClick={handleReset}>Réinitialiser les champs</button>
     </div>
     </div>
   );
