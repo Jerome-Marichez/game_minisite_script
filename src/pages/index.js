@@ -96,7 +96,7 @@ const validateURL = (url) => {
   return (
     <div style={{display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center", alignItems: "center"}}>
       <h1>Script - Jeu Gagnant / Perdant</h1>
-      <label style={{backgroundColor: "lightgrey", padding: "5px", borderRadius: "10px"}}>Info: Le QR-Code doit être lié au lien suivant: <b>https://game-minisite-script.vercel.app/api/game-check/</b>
+      <label style={{backgroundColor: "lightgrey", padding: "5px", borderRadius: "10px"}}>Info: Le QR-Code doit être lié au lien suivant: <b>http://vocalsms.com:3000/api/game-check</b>
       </label>
       <nav style={{display: "flex", flexDirection: "column", alignItems:"center", gap: "10px", marginBottom: "10px"}}>
         <label style={{display: "flex", gap: "5px"}}> 
