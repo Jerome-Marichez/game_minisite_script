@@ -1,10 +1,53 @@
 {
-  "startDate": "",
-  "endDate": "",
-  "Gagnantss": [],
+  "startDate": "2025-02-11",
+  "endDate": "2025-02-13",
+  "gagnants1": [
+    {
+      "date": "2025-02-11",
+      "gagnants1": 10
+    },
+    {
+      "date": "2025-02-12",
+      "gagnants1": 1
+    },
+    {
+      "date": "2025-02-13",
+      "gagnants1": 0
+    }
+  ],
+  "gagnants2": [
+    {
+      "date": "2025-02-11",
+      "gagnants2": 4
+    },
+    {
+      "date": "2025-02-12",
+      "gagnants2": 0
+    },
+    {
+      "date": "2025-02-13",
+      "gagnants2": 0
+    }
+  ],
+  "gagnants3": [
+    {
+      "date": "2025-02-11",
+      "gagnants3": 7
+    },
+    {
+      "date": "2025-02-12",
+      "gagnants3": 5
+    },
+    {
+      "date": "2025-02-13",
+      "gagnants3": 0
+    }
+  ],
   "links": {
-    "siteGagnant": "https://www.minisite_gagnant.com/",
-    "sitePerdant": "https://www.minisite_perdant.com/",
-    "siteFinJeu": "https://www.minisite_fin.com/"
+    "siteLotGagnant1": "https://sms.link/456290",
+    "siteLotGagnant2": "https://sms.link/456289",
+    "siteLotGagnant3": "https://sms.link/456288",
+    "sitePerdant": "https://sms.link/456291",
+    "siteFinJeu": "https://sms.link/456292"
   }
 }

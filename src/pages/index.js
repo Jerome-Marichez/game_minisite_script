@@ -6,14 +6,19 @@ import { MiddlewareNotFoundError } from 'next/dist/shared/lib/utils';
 export default function GameManager({ initialData }) {
   
   const [links, setLinks] = useState(initialData.links || {
-    siteGagnant: '/site-gagnant',
+    siteLotGagnant1: '/site-lot-gagnant',
+    siteLotGagnant2: '/site-lot-gagnant-2',
+    siteLotGagnant3: '/site-lot-gagnant-3',
     sitePerdant: '/site-perdant',
     siteFinJeu: '/site-fin-jeu',
   });
 
   const [startDate, setStartDate] = useState(initialData.startDate || '');
   const [endDate, setEndDate] = useState(initialData.endDate || '');
-  const [Gagnantss, setGagnantss] = useState(initialData.Gagnantss || []);
+  const [gagnants1, setGagnants1] = useState(initialData.gagnants1 || []);
+  const [gagnants2, setGagnants2] = useState(initialData.gagnants2 || []);
+  const [gagnants3, setGagnants3] = useState(initialData.gagnants3 || []);
+
 
   const handleDateChange = (setter) => (e) => {
     setter(e.target.value);
@@ -34,8 +39,15 @@ const validateURL = (url) => {
     const inputs = [];
 
     for (let d = start; d <= end; d.setDate(d.getDate() + 1)) {
-      inputs.push({ date: new Date(d).toISOString().split('T')[0], Gagnants: '' });
+      const dateStr = new Date(d).toISOString().split('T')[0];
+      inputs.push({
+        date: dateStr,
+        gagnants1: gagnants1.find((g) => g.date === dateStr)?.gagnants1 || '',
+        gagnants2: gagnants2.find((g) => g.date === dateStr)?.gagnants2 || '',
+        gagnants3: gagnants3.find((g) => g.date === dateStr)?.gagnants3 || '',
+      });
     }
+
 
     return inputs;
   };
@@ -43,14 +55,26 @@ const validateURL = (url) => {
   useEffect(() => {
     if (startDate && endDate) {
       const inputs = generateInputs();
-      setGagnantss(inputs.map(({ date }) => ({ date, Gagnants: Gagnantss.find(w => w.date === date)?.Gagnants || '' })));
+      setGagnants1(inputs.map(({ date, gagnants1 }) => ({ date, gagnants1 })));
+      setGagnants2(inputs.map(({ date, gagnants2 }) => ({ date, gagnants2 })));
+      setGagnants3(inputs.map(({ date, gagnants3 }) => ({ date, gagnants3 })));
     }
   }, [startDate, endDate]);
 
-  const handleGagnantsChange = (index, value) => {
-    const updatedGagnantss = [...Gagnantss];
-    updatedGagnantss[index].Gagnants = value;
-    setGagnantss(updatedGagnantss);
+  const handleGagnantsChange = (index, field, value) => {
+    if (field === 'gagnants1') {
+      const updated = [...gagnants1];
+      updated[index].gagnants1 = value;
+      setGagnants1(updated);
+    } else if (field === 'gagnants2') {
+      const updated = [...gagnants2];
+      updated[index].gagnants2 = value;
+      setGagnants2(updated);
+    } else if (field === 'gagnants3') {
+      const updated = [...gagnants3];
+      updated[index].gagnants3 = value;
+      setGagnants3(updated);
+    }
   };
   
   const handleLinkChange = (key) => (event) => {
@@ -60,24 +84,41 @@ const validateURL = (url) => {
     }));
   };
 
+
+  const convertData = (testValue) => {
+    const k = Number(testValue);
+
+    return k;
+  }
+
   const handleSave = async () => {
-    const { siteGagnant, sitePerdant, siteFinJeu } = links;
+    const { siteLotGagnant1, siteLotGagnant2, siteLotGagnant3, sitePerdant, siteFinJeu } = links;
     
     if (
-      !validateURL(siteGagnant) ||
+      !validateURL(siteLotGagnant1) ||
+      !validateURL(siteLotGagnant2) ||
+      !validateURL(siteLotGagnant3) ||
       !validateURL(sitePerdant) ||
       !validateURL(siteFinJeu)
     ) {
       alert('Un ou plusieures liens ne sont pas valide');
       return;
     }
-    const data = { startDate, endDate, Gagnantss, links };
+
+    console.log(gagnants1);
 
     try {
       const response = await fetch('/api/save-data', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          startDate,
+          endDate,
+          gagnants1: gagnants1.map((e) => ({...e, gagnants1: convertData(e.gagnants1)})),
+          gagnants2: gagnants2.map((e) => ({...e, gagnants2: convertData(e.gagnants2)})),
+          gagnants3: gagnants3.map((e) => ({...e, gagnants3: convertData(e.gagnants3)})), 
+          links
+        }),
       });
       if (!response.ok) throw new Error('Failed to save data.');
       alert('Donnée sauvegardée');
@@ -90,8 +131,13 @@ const validateURL = (url) => {
   const handleReset = () => {
     setStartDate('');
     setEndDate('');
-    setGagnantss([]);
+    setGagnants1([]);
+    setGagnants2([]);
+    setGagnants3([]);
   };
+
+
+  const commonStyleBg = {backgroundColor: "rgba(0,0,0,0.05)", padding: "10px", gap: "5px", borderRadius: "10px", display: "flex", flexDirection: "column"}
 
   return (
     <div style={{display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center", alignItems: "center"}}>
@@ -99,21 +145,36 @@ const validateURL = (url) => {
       <label style={{backgroundColor: "lightgrey", padding: "5px", borderRadius: "10px"}}>Info: Le QR-Code doit être lié au lien suivant: <b>https://minisite.vocalsms.com/api/game-check/</b>
       </label>
       <nav style={{display: "flex", flexDirection: "column", alignItems:"center", gap: "10px", marginBottom: "10px"}}>
-        <label style={{display: "flex", gap: "5px"}}> 
-            Site Gagnant: 
-            <input type="text" value={links.siteGagnant} onChange={handleLinkChange('siteGagnant')} style={{width: "250px"}}/>
+        
+        <div style={{...commonStyleBg}}>
+          <label style={{display: "flex", gap: "5px"}}> 
+              Site Lot Gagnant 1: 
+              <input type="text" value={links.siteLotGagnant1} onChange={handleLinkChange('siteLotGagnant1')} style={{width: "250px"}}/>
           </label>
-        <label style={{display: "flex", gap: "5px"}}> 
-            Site Perdant: 
-            <input type="text" value={links.sitePerdant} onChange={handleLinkChange('sitePerdant')} style={{width: "250px"}}/>
+          <label style={{display: "flex", gap: "5px"}}> 
+              Site Lot Gagnant 2: 
+              <input type="text" value={links.siteLotGagnant2} onChange={handleLinkChange('siteLotGagnant2')} style={{width: "250px"}}/>
           </label>
-        <label style={{display: "flex", gap: "5px"}}> 
-            Site Fin du jeu: 
-            <input type="text" value={links.siteFinJeu} onChange={handleLinkChange('siteFinJeu')} style={{width: "250px"}}/>
+          <label style={{display: "flex", gap: "5px"}}> 
+              Site Lot Gagnant 3: 
+              <input type="text" value={links.siteLotGagnant3} onChange={handleLinkChange('siteLotGagnant3')} style={{width: "250px"}}/>
           </label>
+        </div>
+        
+        <div style={{...commonStyleBg}}>
+          <label style={{display: "flex", gap: "5px"}}> 
+              Site Perdant: 
+              <input type="text" value={links.sitePerdant} onChange={handleLinkChange('sitePerdant')} style={{width: "250px"}}/>
+            </label>
+          <label style={{display: "flex", gap: "5px"}}> 
+              Site Fin du jeu: 
+              <input type="text" value={links.siteFinJeu} onChange={handleLinkChange('siteFinJeu')} style={{width: "250px"}}/>
+          </label>
+        </div> 
       </nav>
 
-      <div style={{display: "flex", flexDirection: "row", gap: "10px"}}>
+ <div style={{...commonStyleBg}}>
+      <div style={{display: "flex", flexDirection: "row", justifyContent: "center", padding:"10px", gap: "10px"}}>
         <label style={{display: "flex", flexDirection: "row", gap: "5px"}}> 
           Début:
           <input type="date" value={startDate} onChange={handleDateChange(setStartDate)} />
@@ -126,26 +187,49 @@ const validateURL = (url) => {
 
       <div>
         {startDate && endDate &&
-        <div style={{textAlign: "center", marginBottom: "10px"}}>Nombre de gagnants maximum / Jour</div>
+        <div style={{textAlign: "center", marginBottom: "10px", borderBottom: "1px solid black", paddingBottom: "5px"}}>Nombre de gagnants maximum / Jour</div>
         }
-        {Gagnantss.map((day, index) => (
-          <div key={day.date}>
-            <label>
-              <b>{day.date.split("-").reverse().join("-")} </b>
-              <input
-                type="number"
-                value={day.Gagnants}
-                onChange={(e) => handleGagnantsChange(index, e.target.value)}
-              />
-              
-            </label>
-          </div>
-        ))}
+
+        <div>
+   {gagnants1.map((day, index) => (
+  <div key={day.date} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
+    <b>{day.date.split("-").reverse().join("-")}</b>
+
+    <input
+      type="number"
+      style={{maxWidth: "70px"}}
+      value={day.gagnants1}
+      placeholder={0}
+      onChange={(e) => handleGagnantsChange(index, "gagnants1", Number(e.target.value))}
+    />
+
+    <input
+      type="number"
+      style={{maxWidth: "70px"}}
+      value={gagnants2[index]?.gagnants2 || ""}
+      defaultValue={0}
+      placeholder={0}
+      onChange={(e) => handleGagnantsChange(index, "gagnants2", Number(e.target.value))}
+    />
+
+    <input
+      type="number"
+      placeholder={0}
+      style={{maxWidth: "70px"}}
+      value={gagnants3[index]?.gagnants3 || ""}
+      onChange={(e) => handleGagnantsChange(index, "gagnants3", Number(e.target.value))}
+    />
+  </div>
+))}
+
+        </div>
+ 
       </div>
+</div>
 
 <div style={{display: "flex", flexDirection: "row", gap: "20px", marginBottom: "40px"}}>
-      <button style={{maxWidth: "200px", padding: "5px"}} onClick={handleSave}>Sauvegarder les modifications</button>
-      <button style={{maxWidth: "200px", padding: "5px"}} onClick={handleReset}>Réinitialiser les champs</button>
+      <button style={{maxWidth: "150px", padding: "5px"}} onClick={handleSave}>Sauvegarder les modifications</button>
+      <button style={{maxWidth: "150px", padding: "5px"}} onClick={handleReset}>Réinitialiser les champs</button>
     </div>
     </div>
   );
