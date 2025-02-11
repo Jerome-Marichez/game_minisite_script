@@ -190,6 +190,13 @@ const validateURL = (url) => {
         <div style={{textAlign: "center", marginBottom: "10px", borderBottom: "1px solid black", paddingBottom: "5px"}}>Nombre de gagnants maximum / Jour</div>
         }
 
+
+<div style={{display: "flex", gap: "50px", flexDirection: "row"}}>
+  <div style={{minWidth: "52px"}}></div>
+  <div>Lot 1</div>
+  <div>Lot 2</div>
+  <div>Lot 3</div>
+</div>
         <div>
    {gagnants1.map((day, index) => (
   <div key={day.date} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
