@@ -9,6 +9,9 @@ export default function GameManager({ initialData }) {
     siteLotGagnant1: '/site-lot-gagnant',
     siteLotGagnant2: '/site-lot-gagnant-2',
     siteLotGagnant3: '/site-lot-gagnant-3',
+    siteLotGagnant4: '/site-lot-gagnant-4',
+    siteLotGagnant5: '/site-lot-gagnant-5',
+    siteLotGagnant6: '/site-lot-gagnant-6',
     sitePerdant: '/site-perdant',
     siteFinJeu: '/site-fin-jeu',
   });
@@ -18,6 +21,9 @@ export default function GameManager({ initialData }) {
   const [gagnants1, setGagnants1] = useState(initialData.gagnants1 || []);
   const [gagnants2, setGagnants2] = useState(initialData.gagnants2 || []);
   const [gagnants3, setGagnants3] = useState(initialData.gagnants3 || []);
+  const [gagnants4, setGagnants4] = useState(initialData.gagnants4 || []);
+  const [gagnants5, setGagnants5] = useState(initialData.gagnants5 || []);
+  const [gagnants6, setGagnants6] = useState(initialData.gagnants6 || []);
 
 
   const handleDateChange = (setter) => (e) => {
@@ -45,6 +51,10 @@ const validateURL = (url) => {
         gagnants1: gagnants1.find((g) => g.date === dateStr)?.gagnants1 || '',
         gagnants2: gagnants2.find((g) => g.date === dateStr)?.gagnants2 || '',
         gagnants3: gagnants3.find((g) => g.date === dateStr)?.gagnants3 || '',
+        
+        gagnants4: gagnants4.find((g) => g.date === dateStr)?.gagnants4 || '',
+        gagnants5: gagnants5.find((g) => g.date === dateStr)?.gagnants5 || '',
+        gagnants6: gagnants6.find((g) => g.date === dateStr)?.gagnants6 || '',
       });
     }
 
@@ -58,6 +68,9 @@ const validateURL = (url) => {
       setGagnants1(inputs.map(({ date, gagnants1 }) => ({ date, gagnants1 })));
       setGagnants2(inputs.map(({ date, gagnants2 }) => ({ date, gagnants2 })));
       setGagnants3(inputs.map(({ date, gagnants3 }) => ({ date, gagnants3 })));
+      setGagnants4(inputs.map(({ date, gagnants4 }) => ({ date, gagnants4 })));
+      setGagnants5(inputs.map(({ date, gagnants5 }) => ({ date, gagnants5 })));
+      setGagnants6(inputs.map(({ date, gagnants6 }) => ({ date, gagnants6 })));
     }
   }, [startDate, endDate]);
 
@@ -74,6 +87,21 @@ const validateURL = (url) => {
       const updated = [...gagnants3];
       updated[index].gagnants3 = value;
       setGagnants3(updated);
+    }
+    else if (field === 'gagnants4') {
+      const updated = [...gagnants4];
+      updated[index].gagnants4 = value;
+      setGagnants4(updated);
+    }
+    else if (field === 'gagnants5') {
+      const updated = [...gagnants5];
+      updated[index].gagnants5 = value;
+      setGagnants5(updated);
+    }
+    else if (field === 'gagnants6') {
+      const updated = [...gagnants6];
+      updated[index].gagnants6 = value;
+      setGagnants6(updated);
     }
   };
   
@@ -92,12 +120,15 @@ const validateURL = (url) => {
   }
 
   const handleSave = async () => {
-    const { siteLotGagnant1, siteLotGagnant2, siteLotGagnant3, sitePerdant, siteFinJeu } = links;
+    const { siteLotGagnant1, siteLotGagnant2, siteLotGagnant3, siteLotGagnant4, siteLotGagnant5, siteLotGagnant6, sitePerdant, siteFinJeu } = links;
     
     if (
       !validateURL(siteLotGagnant1) ||
       !validateURL(siteLotGagnant2) ||
       !validateURL(siteLotGagnant3) ||
+      !validateURL(siteLotGagnant4) ||
+      !validateURL(siteLotGagnant5) ||
+      !validateURL(siteLotGagnant6) ||
       !validateURL(sitePerdant) ||
       !validateURL(siteFinJeu)
     ) {
@@ -117,6 +148,9 @@ const validateURL = (url) => {
           gagnants1: gagnants1.map((e) => ({...e, gagnants1: convertData(e.gagnants1)})),
           gagnants2: gagnants2.map((e) => ({...e, gagnants2: convertData(e.gagnants2)})),
           gagnants3: gagnants3.map((e) => ({...e, gagnants3: convertData(e.gagnants3)})), 
+          gagnants4: gagnants4.map((e) => ({...e, gagnants4: convertData(e.gagnants4)})), 
+          gagnants5: gagnants5.map((e) => ({...e, gagnants5: convertData(e.gagnants5)})), 
+          gagnants6: gagnants6.map((e) => ({...e, gagnants6: convertData(e.gagnants6)})), 
           links
         }),
       });
@@ -134,6 +168,9 @@ const validateURL = (url) => {
     setGagnants1([]);
     setGagnants2([]);
     setGagnants3([]);
+    setGagnants4([]);
+    setGagnants5([]);
+    setGagnants6([]);
   };
 
 
@@ -158,6 +195,21 @@ const validateURL = (url) => {
           <label style={{display: "flex", gap: "5px"}}> 
               Site Lot Gagnant 3: 
               <input type="text" value={links.siteLotGagnant3} onChange={handleLinkChange('siteLotGagnant3')} style={{width: "250px"}}/>
+          </label>
+
+          <label style={{display: "flex", gap: "5px"}}> 
+              Site Lot Gagnant 4: 
+              <input type="text" value={links.siteLotGagnant4} onChange={handleLinkChange('siteLotGagnant4')} style={{width: "250px"}}/>
+          </label>
+
+          <label style={{display: "flex", gap: "5px"}}> 
+              Site Lot Gagnant 5: 
+              <input type="text" value={links.siteLotGagnant5} onChange={handleLinkChange('siteLotGagnant5')} style={{width: "250px"}}/>
+          </label>
+
+          <label style={{display: "flex", gap: "5px"}}> 
+              Site Lot Gagnant 6: 
+              <input type="text" value={links.siteLotGagnant6} onChange={handleLinkChange('siteLotGagnant6')} style={{width: "250px"}}/>
           </label>
         </div>
         
@@ -196,12 +248,16 @@ const validateURL = (url) => {
   <div>Lot 1</div>
   <div>Lot 2</div>
   <div>Lot 3</div>
+  <div>Lot 4</div>
+  <div>Lot 5</div>
+  <div>Lot 6</div>
 </div>
         <div>
    {gagnants1.map((day, index) => (
   <div key={day.date} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
     <b>{day.date.split("-").reverse().join("-")}</b>
 
+   
     <input
       type="number"
       style={{maxWidth: "70px"}}
@@ -226,6 +282,31 @@ const validateURL = (url) => {
       value={gagnants3[index]?.gagnants3 || ""}
       onChange={(e) => handleGagnantsChange(index, "gagnants3", Number(e.target.value))}
     />
+
+    <input
+      type="number"
+      placeholder={0}
+      style={{maxWidth: "70px"}}
+      value={gagnants4[index]?.gagnants4 || ""}
+      onChange={(e) => handleGagnantsChange(index, "gagnants4", Number(e.target.value))}
+    />
+
+    <input
+      type="number"
+      placeholder={0}
+      style={{maxWidth: "70px"}}
+      value={gagnants5[index]?.gagnants5 || ""}
+      onChange={(e) => handleGagnantsChange(index, "gagnants5", Number(e.target.value))}
+    />
+
+    <input
+      type="number"
+      placeholder={0}
+      style={{maxWidth: "70px"}}
+      value={gagnants6[index]?.gagnants6 || ""}
+      onChange={(e) => handleGagnantsChange(index, "gagnants6", Number(e.target.value))}
+    />
+    
   </div>
 ))}
 

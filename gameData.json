@@ -1,52 +1,19 @@
 {
-  "startDate": "2025-02-11",
-  "endDate": "2025-02-13",
-  "gagnants1": [
-    {
-      "date": "2025-02-11",
-      "gagnants1": 10
-    },
-    {
-      "date": "2025-02-12",
-      "gagnants1": 1
-    },
-    {
-      "date": "2025-02-13",
-      "gagnants1": 0
-    }
-  ],
-  "gagnants2": [
-    {
-      "date": "2025-02-11",
-      "gagnants2": 4
-    },
-    {
-      "date": "2025-02-12",
-      "gagnants2": 0
-    },
-    {
-      "date": "2025-02-13",
-      "gagnants2": 0
-    }
-  ],
-  "gagnants3": [
-    {
-      "date": "2025-02-11",
-      "gagnants3": 7
-    },
-    {
-      "date": "2025-02-12",
-      "gagnants3": 5
-    },
-    {
-      "date": "2025-02-13",
-      "gagnants3": 0
-    }
-  ],
+  "startDate": "",
+  "endDate": "",
+  "gagnants1": [],
+  "gagnants2": [],
+  "gagnants3": [],
+  "gagnants4": [],
+  "gagnants5": [],
+  "gagnants6": [],
   "links": {
     "siteLotGagnant1": "https://sms.link/456290",
     "siteLotGagnant2": "https://sms.link/456289",
     "siteLotGagnant3": "https://sms.link/456288",
+    "siteLotGagnant4": "a_definir4",
+    "siteLotGagnant5": "a_definir5",
+    "siteLotGagnant6": "a_definir6",
     "sitePerdant": "https://sms.link/456291",
     "siteFinJeu": "https://sms.link/456292"
   }
