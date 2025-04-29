@@ -1,8 +1,8 @@
 import fs from 'fs/promises';
 
 export default async function handler(req, res) {
-  const gameDataPath = './gameData1.json';
-  const gameWinPath = './gameWin1.json';
+  const gameDataPath = './gameData2.json';
+  const gameWinPath = './gameWin2.json';
 
   try {
     const gameData = JSON.parse(await fs.readFile(gameDataPath, 'utf-8'));

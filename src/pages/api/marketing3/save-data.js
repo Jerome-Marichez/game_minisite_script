@@ -3,7 +3,7 @@ import path from 'path';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const filePath = "./gameData1.json";
+    const filePath = "./gameData3.json";
 
     try {
       await fs.writeFile(filePath, JSON.stringify(req.body, null, 2));
