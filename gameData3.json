@@ -1,19 +1,73 @@
 {
-  "startDate": "",
-  "endDate": "",
-  "gagnants1": [],
-  "gagnants2": [],
-  "gagnants3": [],
-  "gagnants4": [],
-  "gagnants5": [],
-  "gagnants6": [],
+  "startDate": "2025-04-24",
+  "endDate": "2025-04-25",
+  "gagnants1": [
+    {
+      "date": "2025-04-24",
+      "gagnants1": 1
+    },
+    {
+      "date": "2025-04-25",
+      "gagnants1": 0
+    }
+  ],
+  "gagnants2": [
+    {
+      "date": "2025-04-24",
+      "gagnants2": 0
+    },
+    {
+      "date": "2025-04-25",
+      "gagnants2": 0
+    }
+  ],
+  "gagnants3": [
+    {
+      "date": "2025-04-24",
+      "gagnants3": 5
+    },
+    {
+      "date": "2025-04-25",
+      "gagnants3": 0
+    }
+  ],
+  "gagnants4": [
+    {
+      "date": "2025-04-24",
+      "gagnants4": 1
+    },
+    {
+      "date": "2025-04-25",
+      "gagnants4": 0
+    }
+  ],
+  "gagnants5": [
+    {
+      "date": "2025-04-24",
+      "gagnants5": 5
+    },
+    {
+      "date": "2025-04-25",
+      "gagnants5": 0
+    }
+  ],
+  "gagnants6": [
+    {
+      "date": "2025-04-24",
+      "gagnants6": 5
+    },
+    {
+      "date": "2025-04-25",
+      "gagnants6": 0
+    }
+  ],
   "links": {
-    "siteLotGagnant1": "https://sms.link/456290",
-    "siteLotGagnant2": "https://sms.link/456289",
-    "siteLotGagnant3": "https://sms.link/456288",
-    "siteLotGagnant4": "https://www.google.com/",
-    "siteLotGagnant5": "https://www.mailingvox.com/",
-    "siteLotGagnant6": "https://www.smsenmasse.fr/",
+    "siteLotGagnant1": "https://sms.link/",
+    "siteLotGagnant2": "https://sms.link/",
+    "siteLotGagnant3": "https://sms.link/",
+    "siteLotGagnant4": "https://sms.link/",
+    "siteLotGagnant5": "https://sms.link/",
+    "siteLotGagnant6": "https://sms.link/",
     "sitePerdant": "https://sms.link/456291",
     "siteFinJeu": "https://sms.link/456292"
   }

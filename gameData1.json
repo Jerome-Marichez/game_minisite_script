@@ -1,20 +1,218 @@
 {
-  "startDate": "",
-  "endDate": "",
-  "gagnants1": [],
-  "gagnants2": [],
-  "gagnants3": [],
-  "gagnants4": [],
-  "gagnants5": [],
-  "gagnants6": [],
+  "startDate": "2025-04-01",
+  "endDate": "2025-04-08",
+  "gagnants1": [
+    {
+      "date": "2025-04-01",
+      "gagnants1": 1
+    },
+    {
+      "date": "2025-04-02",
+      "gagnants1": 0
+    },
+    {
+      "date": "2025-04-03",
+      "gagnants1": 0
+    },
+    {
+      "date": "2025-04-04",
+      "gagnants1": 0
+    },
+    {
+      "date": "2025-04-05",
+      "gagnants1": 0
+    },
+    {
+      "date": "2025-04-06",
+      "gagnants1": 0
+    },
+    {
+      "date": "2025-04-07",
+      "gagnants1": 0
+    },
+    {
+      "date": "2025-04-08",
+      "gagnants1": 0
+    }
+  ],
+  "gagnants2": [
+    {
+      "date": "2025-04-01",
+      "gagnants2": 1
+    },
+    {
+      "date": "2025-04-02",
+      "gagnants2": 0
+    },
+    {
+      "date": "2025-04-03",
+      "gagnants2": 0
+    },
+    {
+      "date": "2025-04-04",
+      "gagnants2": 0
+    },
+    {
+      "date": "2025-04-05",
+      "gagnants2": 0
+    },
+    {
+      "date": "2025-04-06",
+      "gagnants2": 0
+    },
+    {
+      "date": "2025-04-07",
+      "gagnants2": 0
+    },
+    {
+      "date": "2025-04-08",
+      "gagnants2": 0
+    }
+  ],
+  "gagnants3": [
+    {
+      "date": "2025-04-01",
+      "gagnants3": 1
+    },
+    {
+      "date": "2025-04-02",
+      "gagnants3": 0
+    },
+    {
+      "date": "2025-04-03",
+      "gagnants3": 0
+    },
+    {
+      "date": "2025-04-04",
+      "gagnants3": 0
+    },
+    {
+      "date": "2025-04-05",
+      "gagnants3": 0
+    },
+    {
+      "date": "2025-04-06",
+      "gagnants3": 0
+    },
+    {
+      "date": "2025-04-07",
+      "gagnants3": 0
+    },
+    {
+      "date": "2025-04-08",
+      "gagnants3": 0
+    }
+  ],
+  "gagnants4": [
+    {
+      "date": "2025-04-01",
+      "gagnants4": 1
+    },
+    {
+      "date": "2025-04-02",
+      "gagnants4": 0
+    },
+    {
+      "date": "2025-04-03",
+      "gagnants4": 0
+    },
+    {
+      "date": "2025-04-04",
+      "gagnants4": 0
+    },
+    {
+      "date": "2025-04-05",
+      "gagnants4": 0
+    },
+    {
+      "date": "2025-04-06",
+      "gagnants4": 0
+    },
+    {
+      "date": "2025-04-07",
+      "gagnants4": 0
+    },
+    {
+      "date": "2025-04-08",
+      "gagnants4": 0
+    }
+  ],
+  "gagnants5": [
+    {
+      "date": "2025-04-01",
+      "gagnants5": 1
+    },
+    {
+      "date": "2025-04-02",
+      "gagnants5": 0
+    },
+    {
+      "date": "2025-04-03",
+      "gagnants5": 0
+    },
+    {
+      "date": "2025-04-04",
+      "gagnants5": 0
+    },
+    {
+      "date": "2025-04-05",
+      "gagnants5": 0
+    },
+    {
+      "date": "2025-04-06",
+      "gagnants5": 0
+    },
+    {
+      "date": "2025-04-07",
+      "gagnants5": 0
+    },
+    {
+      "date": "2025-04-08",
+      "gagnants5": 0
+    }
+  ],
+  "gagnants6": [
+    {
+      "date": "2025-04-01",
+      "gagnants6": 1
+    },
+    {
+      "date": "2025-04-02",
+      "gagnants6": 0
+    },
+    {
+      "date": "2025-04-03",
+      "gagnants6": 0
+    },
+    {
+      "date": "2025-04-04",
+      "gagnants6": 0
+    },
+    {
+      "date": "2025-04-05",
+      "gagnants6": 0
+    },
+    {
+      "date": "2025-04-06",
+      "gagnants6": 0
+    },
+    {
+      "date": "2025-04-07",
+      "gagnants6": 0
+    },
+    {
+      "date": "2025-04-08",
+      "gagnants6": 0
+    }
+  ],
   "links": {
-    "siteLotGagnant1": "https://sms.link/456290",
-    "siteLotGagnant2": "https://sms.link/456289",
-    "siteLotGagnant3": "https://sms.link/456288",
-    "siteLotGagnant4": "https://www.google.com/",
-    "siteLotGagnant5": "https://www.mailingvox.com/",
-    "siteLotGagnant6": "https://www.smsenmasse.fr/",
-    "sitePerdant": "https://sms.link/456291",
-    "siteFinJeu": "https://sms.link/456292"
+    "siteLotGagnant1": "https://sms.link/",
+    "siteLotGagnant2": "https://sms.link/",
+    "siteLotGagnant3": "https://sms.link/",
+    "siteLotGagnant4": "https://sms.link/",
+    "siteLotGagnant5": "https://sms.link/",
+    "siteLotGagnant6": "https://sms.link/",
+    "sitePerdant": "https://sms.link/",
+    "siteFinJeu": "https://sms.link/"
   }
 }

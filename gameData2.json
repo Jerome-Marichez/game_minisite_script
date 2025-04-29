@@ -8,13 +8,13 @@
   "gagnants5": [],
   "gagnants6": [],
   "links": {
-    "siteLotGagnant1": "https://sms.link/456290",
-    "siteLotGagnant2": "https://sms.link/456289",
-    "siteLotGagnant3": "https://sms.link/456288",
-    "siteLotGagnant4": "https://www.google.com/",
-    "siteLotGagnant5": "https://www.mailingvox.com/",
-    "siteLotGagnant6": "https://www.smsenmasse.fr/",
-    "sitePerdant": "https://sms.link/456291",
-    "siteFinJeu": "https://sms.link/456292"
+    "siteLotGagnant1": "https://sms.link/",
+    "siteLotGagnant2": "https://sms.link/",
+    "siteLotGagnant3": "https://sms.link/",
+    "siteLotGagnant4": "https://sms.link/",
+    "siteLotGagnant5": "https://sms.link/",
+    "siteLotGagnant6": "https://sms.link/",
+    "sitePerdant": "https://sms.link/",
+    "siteFinJeu": "https://sms.link/"
   }
 }
